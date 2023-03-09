@@ -1,5 +1,6 @@
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
+from conan.tools.build import cross_building
 
 
 class Lib2Conan(ConanFile):
@@ -24,6 +25,13 @@ class Lib2Conan(ConanFile):
     def config_options(self):
         if self.settings.os == "Windows":
             del self.options.fPIC
+
+    def requirements(self):
+        self.requires("lib1/1.0")
+
+    def build_requirements(self):
+        if cross_building(self):
+           self.build_requires("lib2/1.0")
 
     def layout(self):
         cmake_layout(self)
