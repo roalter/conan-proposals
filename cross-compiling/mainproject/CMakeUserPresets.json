@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/home/luis/DevLocal/conan/conan-proposals/cross-compiling/mainproject/build/Release/generators/CMakePresets.json"
+    ]
+}
